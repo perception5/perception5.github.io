@@ -14,6 +14,7 @@ h1 {
   font-weight: 600;
   font-size: 2rem;
   margin-bottom: 8px;
+  text-align: center;
 }
 
 p {
@@ -25,13 +26,12 @@ p {
 /* Form container */
 .form-container {
   width: 100%;
-  max-width: 400px; /* narrower for desktop */
+  max-width: 400px;
   display: flex;
   flex-direction: column;
   gap: 12px;
   margin: 0 auto 32px auto;
-  position: relative; /* layout stacking only */
-  /* z-index removed */
+  position: relative;
 }
 
 .form-container input,
@@ -44,8 +44,7 @@ p {
   outline: none;
   box-sizing: border-box;
   transition: all 0.2s ease;
-  position: relative; /* keeps stacking within container */
-  /* z-index removed */
+  position: relative;
 }
 
 input:focus {
@@ -123,7 +122,7 @@ button:hover {
   color: #fff;
   font-weight: 600;
   cursor: pointer;
-  z-index: 1000; /* stays high but isolated */
+  z-index: 1000;
   transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
@@ -164,6 +163,15 @@ body.dark-mode #darkModeToggle:hover {
 
 /* Responsive adjustments */
 @media (max-width: 500px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+  }
+
   .form-container {
     max-width: 95%;
   }
@@ -175,7 +183,7 @@ body.dark-mode #darkModeToggle:hover {
   }
 
   #results {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(2, 1fr); /* two columns on mobile */
     gap: 12px;
   }
 
