@@ -1,50 +1,180 @@
-body,
-html {
-  width: 100%;
-  height: 100%;
-  font-family: 'Montserrat', sans-serif;
-  background: url(header.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-
+/* Global */
+body {
+  font-family: 'Inter', sans-serif;
+  background: #fafafa;
+  color: #111;
+  margin: 0;
+  padding: 20px; /* updated for mobile */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h1 {
-  font-sie: 3rem;
-  color: #fef5ff;
+  font-weight: 600;
+  font-size: 2rem;
+  margin-bottom: 8px;
 }
 
-hr {
-    margin: 20px auto;
-    color: #ff6c00;
-    border: 1px solid #ff6c00;
-    max-width: 65px;
-    opacity: 1;  
+p {
+  color: #555;
+  margin-bottom: 24px;
+  text-align: center;
 }
 
-.buffer {
-  height: 13.9rem;
+/* Form container */
+.form-container {
+  width: 100%;
+  max-width: 95%; /* mobile-friendly width */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0 auto 32px auto;
+  position: static !important;
 }
 
-.btn {
-  font-weight: 700;
-  border-radius: 1px;
-  text-transform: uppercase;
+.form-container input,
+.form-container button {
+  padding: 12px 16px;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
 }
 
-.btn-xl{
-  padding: .5rem 1rem;
+input:focus {
+  border-color: #0071e3;
+  box-shadow: 0 0 6px rgba(0,113,227,0.3);
 }
 
-.btn-primary {
-  background-color: #ff6c00;
-  border-color: white;
+button {
+  background: #0071e3;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.btn-primary:hover{
-  background-color: #a44600;
-  border-color: white;
-  border-width: 2px;
+button:hover {
+  background: #005bb5;
+  transform: translateY(-1px);
+}
+
+/* Results grid */
+#results {
+  margin-top: 24px; /* slightly smaller on mobile */
+  width: 100%;
+  max-width: 800px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+}
+
+/* NFT cards */
+.nft {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nft:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+}
+
+.nft img {
+  max-width: 100%;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  display: block;
+}
+
+.nft p {
+  margin: 12px 0;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+#debug {
+  display: none; /* Hide debug panel in production */
+}
+
+/* Dark mode toggle button */
+#darkModeToggle {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(0, 113, 227, 0.85);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 1000;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+#darkModeToggle:hover {
+  background: rgba(0, 91, 181, 0.95);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Dark mode overrides */
+body.dark-mode {
+  background: #111;
+  color: #fafafa;
+}
+
+body.dark-mode input,
+body.dark-mode textarea {
+  background: #222;
+  border-color: #555;
+  color: #fafafa;
+}
+
+body.dark-mode button {
+  background: #1a73e8;
+}
+
+body.dark-mode button:hover {
+  background: #1664c1;
+}
+
+body.dark-mode #darkModeToggle {
+  background: rgba(26, 115, 232, 0.85);
+}
+
+body.dark-mode #darkModeToggle:hover {
+  background: rgba(22, 100, 193, 0.95);
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+  .form-container input,
+  .form-container button {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  #results {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+  }
+
+  #darkModeToggle {
+    padding: 6px 10px;
+    top: 10px;
+    right: 10px;
+  }
 }
