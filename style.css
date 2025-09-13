@@ -4,7 +4,7 @@ body {
   background: #fafafa;
   color: #111;
   margin: 0;
-  padding: 20px; /* updated for mobile */
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,22 +25,13 @@ p {
 /* Form container */
 .form-container {
   width: 100%;
-  max-width: 400px; /* updated to reduce width on desktop */
+  max-width: 400px; /* narrower for desktop */
   display: flex;
   flex-direction: column;
   gap: 12px;
   margin: 0 auto 32px auto;
-}
-
-.form-container {
-  width: 100%;
-  max-width: 400px; /* limits width on desktop */
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin: 0 auto 32px auto;
-  /* removed position: static !important; */
-  position: relative; /* ensure proper stacking */
+  position: relative; /* layout stacking only */
+  /* z-index removed */
 }
 
 .form-container input,
@@ -53,7 +44,13 @@ p {
   outline: none;
   box-sizing: border-box;
   transition: all 0.2s ease;
-  position: relative; /* ensures proper stacking within container */
+  position: relative; /* keeps stacking within container */
+  /* z-index removed */
+}
+
+input:focus {
+  border-color: #0071e3;
+  box-shadow: 0 0 6px rgba(0,113,227,0.3);
 }
 
 button {
@@ -111,7 +108,7 @@ button:hover {
 }
 
 #debug {
-  display: none; /* Hide debug panel in production */
+  display: none;
 }
 
 /* Dark mode toggle button */
@@ -126,7 +123,7 @@ button:hover {
   color: #fff;
   font-weight: 600;
   cursor: pointer;
-  z-index: 1000;
+  z-index: 1000; /* stays high but isolated */
   transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
@@ -168,7 +165,7 @@ body.dark-mode #darkModeToggle:hover {
 /* Responsive adjustments */
 @media (max-width: 500px) {
   .form-container {
-    max-width: 95%; /* mobile-friendly width */
+    max-width: 95%;
   }
 
   .form-container input,
