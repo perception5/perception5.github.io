@@ -41,7 +41,6 @@ p {
   margin: 0 auto 32px auto;
   /* removed position: static !important; */
   position: relative; /* ensure proper stacking */
-  z-index: 1; /* ensures clicks register above any background layers */
 }
 
 .form-container input,
@@ -55,7 +54,6 @@ p {
   box-sizing: border-box;
   transition: all 0.2s ease;
   position: relative; /* ensures proper stacking within container */
-  z-index: 2; /* above container for safe clicks */
 }
 
 button {
