@@ -25,7 +25,7 @@ p {
 /* Form container */
 .form-container {
   width: 100%;
-  max-width: 95%; /* mobile-friendly width */
+  max-width: 400px; /* updated to reduce width on desktop */
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -66,7 +66,7 @@ button:hover {
 
 /* Results grid */
 #results {
-  margin-top: 24px; /* slightly smaller on mobile */
+  margin-top: 24px;
   width: 100%;
   max-width: 800px;
   display: grid;
@@ -161,6 +161,10 @@ body.dark-mode #darkModeToggle:hover {
 
 /* Responsive adjustments */
 @media (max-width: 500px) {
+  .form-container {
+    max-width: 95%; /* mobile-friendly width */
+  }
+
   .form-container input,
   .form-container button {
     font-size: 0.9rem;
